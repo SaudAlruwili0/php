@@ -22,9 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
 }
-if (!count($errors)) {
+if (!count($errors) && !empty($email)) {
     // die("$email");
-    $userExists = $mysqli->query("select id,email,password,name from users where email = '$email' limit 1");
+    $userExists = $mysqli->query("select id,email,password,name,role from users where email = '$email' limit 1");
 
     if (!$userExists->num_rows) {
         array_push($errors, "your email , $email does not exists in our records");
@@ -37,8 +37,13 @@ if (!count($errors)) {
             $_SESSION['logged_in'] = true;
             $_SESSION['user_id'] = $found_user['id'];
             $_SESSION['user_name'] = $found_user['name'];
+            $_SESSION['user_role'] = $found_user['role'];
             $_SESSION['success_message'] = "welcome back, $found_user[name]";
-            header('location: index.php');
+            if ($_SESSION['user_role'] == 'admin') {
+                header('location: admin');
+            } else {
+                header('location: index.php');
+            }
         } else {
 
             array_push($errors, 'wrong credentials');

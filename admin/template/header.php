@@ -1,6 +1,13 @@
 <?php
+session_start();
+
 require_once __DIR__ . '/../../config/app.php';
 require_once __DIR__ . '/../../config/database.php';
+require_once __DIR__ . '/../../classes/User.php';
+$user = new User;
+if (!$user->isAdmin()) {
+    die('you are not allowed to access this page');
+}
 ?>
 <!doctype html>
 <html lang="en">

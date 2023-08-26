@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         array_push($errors, "password don't match");
     }
 }
-if (!count($errors)) {
+if (!count($errors) && !empty($email)) {
     $userExists = $mysqli->query("select id,email from users where email = '$email' limit 1");
     if ($userExists->num_rows) {
         array_push($errors, "email already registered");

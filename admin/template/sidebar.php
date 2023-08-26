@@ -19,19 +19,19 @@
             </a>
         </li>
         <li>
-            <a href="table.html">
+            <a href="../../classes/services.php">
                 <i class="pe-7s-browser"></i>
                 <p>services</p>
             </a>
         </li>
         <li>
-            <a href="typography.html">
+            <a href="../../classes/products.php">
                 <i class="pe-7s-news-paper"></i>
-                <p>priducts</p>
+                <p>products</p>
             </a>
         </li>
         <li>
-            <a href="icons.html">
+            <a href="../../classes/settings.php">
                 <i class="pe-7s-science"></i>
                 <p>settings</p>
             </a>
